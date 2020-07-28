@@ -1,8 +1,8 @@
 package ru.yandex;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -22,12 +22,10 @@ public class YaPageFactory {
     @FindBy(xpath = "//*[@class=\"search2__button\"]")
     public WebElement searchButton;
 
-    @FindBy(id = "search-result")
-    public WebElement listElement;
-
-    public List<WebElement> getResultList() {
-        return listElement.findElements(By.xpath("//*[@class=\"serp-item\"]"));
-    }
+    @FindAll({
+            @FindBy(xpath = "//li[@class=\"serp-item\"]//div/h2/a")
+    })
+    public List<WebElement> resultList;
 
 
 }
