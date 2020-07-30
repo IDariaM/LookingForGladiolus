@@ -20,10 +20,6 @@ public class YaPage {
         searchButton.click();
     }
 
-    public YaPage(WebDriver chromeDriver, YaPageFactory pageFactory) {
-        this.chromeDriver = chromeDriver;
-        this.pageFactory = pageFactory;
-    }
 
     public List<Map<String, String>> getSearchResults() {
         searchResults = new ArrayList<>();
@@ -35,5 +31,10 @@ public class YaPage {
             ));
         }
         return searchResults;
+    }
+
+    public YaPage(WebDriver chromeDriver, YaPageFactory pageFactory) {
+        this.chromeDriver = chromeDriver;
+        this.pageFactory = pageFactory;
     }
 }
